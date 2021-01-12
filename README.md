@@ -10,6 +10,13 @@ We comparing here 4 famous sorting technic, which are :
     - Selection sort
     - Quick sort (recursive)
 
+
+We comparing here 4 famous sorting technic, which are :
+
+- Bubble sort
+- Insertion sort
+- Selection sort
+- Quick sort (recursive)
   
   ### How to use it ? 
   
