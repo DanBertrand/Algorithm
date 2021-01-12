@@ -10,7 +10,8 @@ We comparing here 4 famous sorting technic, which are :
 - Insertion sort
 - Selection sort
 - Quick sort (recursive)
-  
+
+
   
   ### How to use it ? 
   
