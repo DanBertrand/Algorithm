@@ -1,5 +1,4 @@
 class Document {
-
     constructor(file, countComparison = 0) {
         this.file = file;
         this.countComparison = countComparison;
@@ -15,7 +14,7 @@ class Document {
         const array = this.stringToArray(string);
         this.countComparison = 0;
 
-        for (let i = 1; i < array.length ; i++) {
+        for (let i = 1; i < array.length; i++) {
             swapped = false
 
             for (let j = 0; j < array.length - i; j++) {
@@ -91,27 +90,26 @@ class Document {
 };
 
 comapareSorting = (file) => {
-	if (file == undefined) {console.log("Please call a valid file after calling index.js")}
-	else {
-		const fs = require('fs');
-		fs.readFile(file, 'utf8', (error, data) => {
-		    if (error) {
-		        console.error(error.message);
-		        return;
-		    }
-		    console.log(data);
-		    myDocument.bubbleSort(data)
-		    console.log(`Tri à bulles:           ${myDocument.countComparison} comparisons - [${myDocument.bubbleSort(data)}]`);
-		    myDocument.insertionSort(data)
-		    console.log(`Tri par insertion:      ${myDocument.countComparison} comparisons - [${myDocument.insertionSort(data)}]`);
-		    myDocument.selectionSort(data)
-		    console.log(`Tri par selection:      ${myDocument.countComparison} comparisons - [${myDocument.selectionSort(data)}]`);
-		    let array = myDocument.stringToArray(data);
-		    myDocument.countComparison = 0;
-		    myDocument.quickSort(array)
-		    console.log(`Tri rapide (recursion): ${myDocument.countComparison} comparisons - [${myDocument.quickSort(array)}]`);
-		});
-	}
+    if (file == undefined) { console.log("Please call a valid file after calling index.js") } else {
+        const fs = require('fs');
+        fs.readFile(file, 'utf8', (error, data) => {
+            if (error) {
+                console.error(error.message);
+                return;
+            }
+            console.log(data);
+            myDocument.bubbleSort(data)
+            console.log(`Tri à bulles:           ${myDocument.countComparison} comparisons - [${myDocument.bubbleSort(data)}]`);
+            myDocument.insertionSort(data)
+            console.log(`Tri par insertion:      ${myDocument.countComparison} comparisons - [${myDocument.insertionSort(data)}]`);
+            myDocument.selectionSort(data)
+            console.log(`Tri par selection:      ${myDocument.countComparison} comparisons - [${myDocument.selectionSort(data)}]`);
+            let array = myDocument.stringToArray(data);
+            myDocument.countComparison = 0;
+            myDocument.quickSort(array)
+            console.log(`Tri rapide (recursion): ${myDocument.countComparison} comparisons - [${myDocument.quickSort(array)}]`);
+        });
+    }
 };
 
 const myDocument = new Document(process.argv[2]);
