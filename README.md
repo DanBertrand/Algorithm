@@ -10,12 +10,6 @@ We comparing here 4 famous sorting technic, which are :
     - Selection sort
     - Quick sort (recursive)
 
-
-
-  - Fork or clone the repo
-  - Go into your terminal and get into the folder
-  - Run |+
-  
   
   ### How to use it ? 
   
@@ -26,16 +20,5 @@ Go into your terminal and get into the folder
 Run:
 
 ```sh
-npm install blueimp-tmpl
+node index.js "nom_du_fichier.txt"
 ```
-
-Include the (minified) JavaScript Templates script in your HTML markup:
-
-```html
-<script src="js/tmpl.min.js"></script>
-```
-
-Add a script section with type **"text/x-tmpl"**, a unique **id** property and
-your template definition as content:
-
-```html
