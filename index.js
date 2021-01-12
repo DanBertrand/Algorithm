@@ -9,10 +9,16 @@ class Document {
 		this.countComparison = countComparison;
 	}
 
+
+	stringToArray(string) {
+		const array = string.split(' ').map(Number);
+		return array
+	}
+
 	bubbleSort (string) {
 	  let swapped = false
-	  const array = string.split(' ').map(Number);
-	  let count = 0;
+	  const array = this.stringToArray(string);
+	  this.countComparison = 0;
 
 	  for (let i = 1; i < array.length - 1; i++) {
 	    swapped = false
@@ -21,7 +27,7 @@ class Document {
 	      if (array[j + 1] < array[j]) {
 	        ;[array[j], array[j + 1]] = [array[j + 1], array[j]]
 	        swapped = true
-	        count += 1;
+	        this.countComparison += 1;
 	      }
 	    }
 
@@ -30,10 +36,24 @@ class Document {
 	    }
 	  }
 
-	  return [array,  count]
+	  return array
 	}
 
-
+	insertionSort (string) {
+	  let nums = this.stringToArray(string);
+	  this.countComparison = 0;
+	  for (let i = 1; i < nums.length; i++) {
+	    let j = i - 1
+	    let tmp = nums[i]
+	    while (j >= 0 && nums[j] > tmp) {
+	      nums[j + 1] = nums[j]
+	      j--
+	    }
+	    nums[j+1] = tmp
+	    this.countComparison += 1;
+	  }
+	  return nums
+	}
 
 };
 
@@ -46,7 +66,10 @@ readFile = (file) => {
 	        return ;
 	    }
 	    console.log(data);
-	    console.log(`Tri à bulles: ${myDocument.bubbleSort(data)[1]} comparisons - [${myDocument.bubbleSort(data)[0]}]`);
+	    myDocument.bubbleSort(data)
+	    console.log(`Tri à bulles: ${myDocument.countComparison} comparisons - [${myDocument.bubbleSort(data)}]`);
+	    myDocument.insertionSort(data)
+	    console.log(`Tri par insertion: ${myDocument.countComparison} comparisons - [${myDocument.insertionSort(data)}]`);
 	});
 }
 
