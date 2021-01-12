@@ -5,7 +5,6 @@ class Document {
         this.countComparison = countComparison;
     };
 
-
     stringToArray(string) {
         const array = string.split(' ').map(Number);
         return array
@@ -30,7 +29,6 @@ class Document {
                 return array
             }
         }
-
         return array
     };
 
@@ -47,7 +45,6 @@ class Document {
                 this.countComparison += 1;
             }
             array[j + 1] = key;
-
         }
         return array;
     };
@@ -74,15 +71,12 @@ class Document {
     };
 
     quickSort(array) {
-
         if (array.length < 2) {
             return array;
         }
-
         var pivot = array[0];
         var lesserArray = [];
         var greaterArray = [];
-
         for (var i = 1; i < array.length; i++) {
             this.countComparison += 1;
             if (array[i] > pivot) {
@@ -91,35 +85,34 @@ class Document {
                 lesserArray.push(array[i]);
             }
         };
-
         return this.quickSort(lesserArray).concat(pivot, this.quickSort(greaterArray));
     };
 
 };
 
-
-readFile = (file) => {
-    const fs = require('fs');
-    fs.readFile(file, 'utf8', (error, data) => {
-        if (error) {
-            console.error(error.message);
-            return;
-        }
-        console.log(data);
-        myDocument.bubbleSort(data)
-        console.log(`Tri à bulles:           ${myDocument.countComparison} comparisons - [${myDocument.bubbleSort(data)}]`);
-        myDocument.insertionSort(data)
-        console.log(`Tri par insertion:      ${myDocument.countComparison} comparisons - [${myDocument.insertionSort(data)}]`);
-        myDocument.selectionSort(data)
-        console.log(`Tri par selection:      ${myDocument.countComparison} comparisons - [${myDocument.selectionSort(data)}]`);
-        let array = myDocument.stringToArray(data);
-        myDocument.countComparison = 0;
-        myDocument.quickSort(array)
-        console.log(`Tri rapide (recursion): ${myDocument.countComparison} comparisons - [${myDocument.quickSort(array)}]`);
-    });
+comapareSorting = (file) => {
+	if (file == undefined) {console.log("Please call a valid file after calling index.js")}
+	else {
+		const fs = require('fs');
+		fs.readFile(file, 'utf8', (error, data) => {
+		    if (error) {
+		        console.error(error.message);
+		        return;
+		    }
+		    console.log(data);
+		    myDocument.bubbleSort(data)
+		    console.log(`Tri à bulles:           ${myDocument.countComparison} comparisons - [${myDocument.bubbleSort(data)}]`);
+		    myDocument.insertionSort(data)
+		    console.log(`Tri par insertion:      ${myDocument.countComparison} comparisons - [${myDocument.insertionSort(data)}]`);
+		    myDocument.selectionSort(data)
+		    console.log(`Tri par selection:      ${myDocument.countComparison} comparisons - [${myDocument.selectionSort(data)}]`);
+		    let array = myDocument.stringToArray(data);
+		    myDocument.countComparison = 0;
+		    myDocument.quickSort(array)
+		    console.log(`Tri rapide (recursion): ${myDocument.countComparison} comparisons - [${myDocument.quickSort(array)}]`);
+		});
+	}
 };
 
-
-
-const myDocument = new Document(process.argv[2])
-readFile(myDocument.file)
+const myDocument = new Document(process.argv[2]);
+comapareSorting(myDocument.file);
