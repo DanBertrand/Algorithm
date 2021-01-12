@@ -16,7 +16,7 @@ class Document {
         const array = this.stringToArray(string);
         this.countComparison = 0;
 
-        for (let i = 1; i < array.length - 1; i++) {
+        for (let i = 1; i < array.length ; i++) {
             swapped = false
 
             for (let j = 0; j < array.length - i; j++) {
