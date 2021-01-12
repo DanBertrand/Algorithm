@@ -1,5 +1,4 @@
 # Algorithm
-Algorithm
 
 This little JavaScript program allow us to compare the famous differents sorting technic, for a list of number, showing the coplexity of all of them (how many comparisons each function needs to make).
 
@@ -12,15 +11,19 @@ We comparing here 4 famous sorting technic, which are :
     - Quick sort (recursive)
 
 
-How to use it ? 
+
   - Fork or clone the repo
   - Go into your terminal and get into the folder
   - Run |+
   
   
-  ### Client-side
+  ### How to use it ? 
+  
+Fork or clone the repo
 
-Install the **blueimp-tmpl** package with [NPM](https://www.npmjs.org/):
+Go into your terminal and get into the folder
+
+Run:
 
 ```sh
 npm install blueimp-tmpl
